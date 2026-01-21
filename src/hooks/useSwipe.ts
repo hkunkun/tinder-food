@@ -53,26 +53,39 @@ export function useSwipe({ onSwipe, onSwipeStart, onSwipeEnd }: UseSwipeOptions)
 
         // Determine swipe action based on position
         if (x > SWIPE_THRESHOLD) {
-            // Swipe right - Like
             action = 'like';
         } else if (x < -SWIPE_THRESHOLD) {
-            // Swipe left - Nope
             action = 'nope';
         } else if (y < -SWIPE_THRESHOLD) {
-            // Swipe up - Super Like
             action = 'superlike';
         }
 
-        // Reset card position first
-        setCardState({ x: 0, y: 0, rotation: 0, scale: 1 });
-        setIsDragging(false);
-        onSwipeEnd?.();
-
-        // Trigger the swipe callback after a small delay to let the animation complete
         if (action) {
+            // Successful swipe: Animate off screen
+            const throwX = action === 'superlike' ? 0 : (x > 0 ? 1000 : -1000);
+            const throwY = action === 'superlike' ? -1000 : y;
+            const throwRotation = x * ROTATION_FACTOR;
+
+            setCardState({
+                x: throwX,
+                y: throwY,
+                rotation: throwRotation,
+                scale: 1
+            });
+            setIsDragging(false);
+            onSwipeEnd?.();
+
+            // Wait for animation then trigger action and reset
             setTimeout(() => {
                 onSwipe(action);
-            }, 100);
+                // Reset state for the NEXT card (which will fall into index 0)
+                setCardState({ x: 0, y: 0, rotation: 0, scale: 1 });
+            }, 200);
+        } else {
+            // Cancelled swipe: Snap back
+            setCardState({ x: 0, y: 0, rotation: 0, scale: 1 });
+            setIsDragging(false);
+            onSwipeEnd?.();
         }
     }, [isDragging, cardState, onSwipe, onSwipeEnd]);
 

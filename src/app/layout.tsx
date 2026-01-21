@@ -8,11 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mealr - Discover Your Next Favorite Meal",
+  title: "Kunder Food - Discover Your Next Favorite Meal",
   description: "Swipe through delicious dishes and get personalized meal recommendations based on your taste preferences.",
   keywords: ["meal", "food", "recipes", "recommendations", "tinder for food"],
   openGraph: {
-    title: "Mealr - Discover Your Next Favorite Meal",
+    title: "Kunder Food - Discover Your Next Favorite Meal",
     description: "Swipe through delicious dishes and get personalized meal recommendations.",
     type: "website",
   },
