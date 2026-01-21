@@ -1,0 +1,148 @@
+.card {
+  position: absolute;
+  width: 100%;
+  max-width: 380px;
+  height: 100%;
+  max-height: 560px;
+  aspect-ratio: 380 / 560;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.topCard {
+  z-index: 10;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      transparent 40%,
+      rgba(0, 0, 0, 0.4) 70%,
+      rgba(0, 0, 0, 0.9) 100%);
+  pointer-events: none;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  color: white;
+  z-index: 5;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Overlay for swipe feedback */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+
+.likeOverlay {
+  background: rgba(74, 222, 128, 0.4);
+}
+
+.nopeOverlay {
+  background: rgba(248, 113, 113, 0.4);
+}
+
+.superLikeOverlay {
+  background: rgba(96, 165, 250, 0.4);
+}
+
+/* Swipe indicators */
+.indicator {
+  position: absolute;
+  top: 40px;
+  padding: 10px 24px;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border: 4px solid;
+  border-radius: 12px;
+  opacity: 0;
+  transform: rotate(-25deg);
+  transition: opacity 0.15s ease;
+  z-index: 20;
+  pointer-events: none;
+
+  /* Make all indicators white per request */
+  color: white;
+  border-color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.visible {
+  opacity: 1;
+}
+
+.likeIndicator {
+  right: 24px;
+  transform: rotate(15deg);
+  background: rgba(74, 222, 128, 0.2);
+}
+
+.nopeIndicator {
+  left: 24px;
+  transform: rotate(-15deg);
+  background: rgba(248, 113, 113, 0.2);
+}
+
+.superLikeIndicator {
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  background: rgba(96, 165, 250, 0.2);
+}

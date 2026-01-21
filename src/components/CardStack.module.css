@@ -1,0 +1,50 @@
+.stack {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px;
+}
+
+.emptyIcon {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+.emptyState h3 {
+    font-size: 24px;
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+}
+
+.emptyState p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.buttonTrigger {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}

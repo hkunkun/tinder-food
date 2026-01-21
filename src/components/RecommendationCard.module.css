@@ -1,0 +1,133 @@
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.imageContainer {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rank {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+
+.matchBadge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    padding: 8px 14px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.matchPercent {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}
+
+.matchLabel {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: white;
+    line-height: 1.3;
+}
+
+.meta {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.reason {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.checkIcon {
+    color: #4ade80;
+    font-weight: bold;
+}
+
+.recipeLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #f97316;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.recipeLink:hover {
+    color: #fb923c;
+}
+
+.recipeLink svg {
+    width: 16px;
+    height: 16px;
+}
